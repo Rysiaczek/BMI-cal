@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script>
+        function kalkulator()
+        {
+            var wzrost = (document.getElementById("a").value);
+            var waga = (document.getElementById("b").value);
+            
+            var bmi = waga/(wzrost/100*wzrost/100) ;
+            
+            if(bmi <= 16) 
+                document.getElementById("wynik").innerText = "Twoje BMI to: "  +(bmi.toFixed(1))+ " Wygłodzenie ";
+            else if(bmi >=16 && bmi <=16.9) 
+                document.getElementById("wynik").innerText = "Twoje BMI to: "  +(bmi.toFixed(1))+ " Wychudzenie ";
+            else if(bmi >=17 && bmi <=18.5) 
+                document.getElementById("wynik").innerText = "Twoje BMI to: "  +(bmi.toFixed(1))+ " niedowaga ";
+            else if(bmi >=18.6 && bmi <=25) 
+                document.getElementById("wynik").innerText = "Twoje BMI to: "  +(bmi.toFixed(1))+ " wartość prawidłowa ";
+            else if(bmi >=25.1 && bmi <=30) 
+                document.getElementById("wynik").innerText = "Twoje BMI to: "  +(bmi.toFixed(1))+ " nadwaga ";
+            else if(bmi >=30.1 && bmi <=35) 
+                document.getElementById("wynik").innerText = "Twoje BMI to: "  +(bmi.toFixed(1))+ " I stopień otyłości ";
+            else if(bmi >=35.1 && bmi <=40) 
+                document.getElementById("wynik").innerText = "Twoje BMI to: "  +(bmi.toFixed(1))+ " II stopień otyłości ";
+            else if(bmi >= 40.1) 
+                document.getElementById("wynik").innerText = "Twoje BMI to: "  +(bmi.toFixed(1))+ " III stopień otyłości ";
+            else{
+					alert("Uzupełnij wszystkie pola poprawnie")
+				}
+        }
+        function wyczysc()
+        {
+            a.value=''
+            b.value='' 
+            document.getElementById("wynik").innerText = "...";
+        }
+    </script>
+</head>
+	
+<body>
+    <div id="centrum">
+        <div id="panel">
+            <div id="nag">
+                Sprawdź swoje<b> BMI</b>
+            </div>
+            <div id="kal">
+                 Wzrost :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" id="a"> cm<br><br>
+                 Waga :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" id="b" > kg<br><br>
+                <div id="przyciski">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="button"  value="oblicz" onmouseover ="kalkulator()">
+                    &nbsp;&nbsp;
+                    <input type="button"  value="wyczyść" ondblclick ="wyczysc()">
+                    
+                </div>
+                <br><br>
+                <div id="wynik">...</div>
+                
+            </div>
+        </div>
+    </div>
+</body>	
+</html>
